@@ -1,0 +1,23 @@
+{% extends "estudiantes/base.html" %}
+
+{% block subtitulo %}Lista de estudiantes{% endblock subtitulo %}
+
+
+{% block contenido %}
+{% include "estudiantes/barra_saludo.html" %}
+
+<a href="{% url 'crear_alumno' %}">Ingresa tus datos para ser parte del curso</a>
+
+<br>
+<br>
+
+<h1 class="titulos-coder">Lista de estudiantes</h1>
+
+<br>
+
+<ul>
+{% for student in estudiantes %}
+  <li>{{ student.apellido }}, {{ student.nombre }}: {{ student.dni }} </li>
+{% endfor %}
+</ul>
+{% endblock contenido %}
